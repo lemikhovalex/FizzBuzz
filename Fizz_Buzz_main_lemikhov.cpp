@@ -12,8 +12,9 @@ using namespace std;
 int main()
 {
 	char input[100];
-	cin.getline(input,sizeof(input));
+	//cin.getline(input,sizeof(input));
 	string line=input;
+	line="33";
 	int len=line.length();
 	cout <<len;
 	cout << "= length \n";
