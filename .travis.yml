@@ -1,2 +1,2 @@
 language: cpp
-install: makefile
+install: make get-deps
