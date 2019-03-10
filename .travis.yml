@@ -1,2 +1,2 @@
 language: cpp
-build: make
+install: makefile
