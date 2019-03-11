@@ -1,7 +1,6 @@
 language: cpp
-compiler: gcc
+compiler: g++
 
 script: 
   - make
   - ./main
-  - ./travis_gcc_cpp17
