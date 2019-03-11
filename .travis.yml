@@ -7,4 +7,4 @@ before_script:
 
 script: 
   - make
-  - ./main
+  - ./test1
