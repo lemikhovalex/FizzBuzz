@@ -17,7 +17,7 @@ using namespace std;
 
 BOOST_AUTO_TEST_CASE( lol )
 {
-    BOOST_CHECK( total_fizz_buzz("1 7")=="1 7" );
+    BOOST_CHECK( total_fizz_buzz("1 7")=="1 6" );
 }
 
 
