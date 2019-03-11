@@ -10,9 +10,10 @@
 using namespace std;
 int main()
 {
-	char input[100];
-	cin.getline(input,sizeof(input));
-	string line=input;
+	//char input[100];
+	//cin.getline(input,sizeof(input));
+	//string line=input;
+	string line="11 22";
 	string out=total_fizz_buzz(line);
 	cout << out;
 }
