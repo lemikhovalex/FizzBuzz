@@ -18,13 +18,10 @@ using namespace std;
 BOOST_AUTO_TEST_CASE( lol )
 {
 	string task, answ;
-	
-	printf("lol\n");
 	ifstream file("test.in");
 	while(getline(file, task)){
 		getline(file, answ);
 		BOOST_CHECK( total_fizz_buzz(task)==answ );
-		printf("lol\n");        
     }
 	
 }
