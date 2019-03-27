@@ -10,7 +10,10 @@
 using namespace std;
 
 
-int is_char_number(char a)
+int is_char_numeral(char a)
+/*
+ check if a char is a numeral
+ */
 {
 	if(
 	a=='1' ||
@@ -31,6 +34,9 @@ int is_char_number(char a)
 }
 
 int is_token_number(string str)
+/*
+ *is this token a number
+ */
 {
 	int len=str.length();
 	if(len==1 && str[0]=='-')
@@ -42,7 +48,7 @@ int is_token_number(string str)
 	{
 		j++;
 	}
-	for(; is_char_number( str[j] ) ==1 && j<len; j++)
+	for(; is_char_numeral( str[j] ) ==1 && j<len; j++)
 	{
 	}
 	if(j==len)
@@ -53,91 +59,107 @@ int is_token_number(string str)
 }
 
 int char_to_int(char a)
+/*
+ * convert mumeral to int
+ */
 {
+	int out;
 	if(a=='1')
 	{
-		return 1;
+		out= 1;
 	}
 	if(a=='2')
 	{
-		return 2;
+		out= 2;
 	}
 	if(a=='3')
 	{
-		return 3;
+		out= 3;
 	}
 	if(a=='4')
 	{
-		return 4;
+		out= 4;
 	}
 	if(a=='5')
 	{
-		return 5;
+		out= 5;
 	}
 	if(a=='6')
 	{
-		return 6;
+		out= 6;
 	}
 	if(a=='7')
 	{
-		return 7;
+		out= 7;
 	}
 	if(a=='8')
 	{
-		return 8;
+		out= 8;
 	}
 	if(a=='9')
 	{
-		return 9;
+		out= 9;
 	}
 	if(a=='0')
 	{
-		return 0;
+		out= 0;
 	}
-	return 0;
+	out=-1;
+	return out;
 }
 
 int is_5_div(string s)
+/*
+ * checking if nuber can be divided by 5
+ */
 {
+	int out=0;
 	if(s[s.length()-1]=='5' || s[s.length()-1]=='0')
 	{
-		return 1;
+		out= 1;
 	}
-	return 0;
+	out=0;
+	return out;
 }
 
 int is_3_div(string str)
+/*
+ * checking if nuber can be divided by 3
+ */
 {
+	int out;
 	if(str=="")
 	{
-		return 0;
+		out= 0;
 	}
-	//cout <<str;
-	//cout<<"string for check\n";
 	int sum=0;
 	int j=0;
 	int len = str.length();
-	if(str[0]=='-')
+	if(str[0]=='-')//check if muber is under zero
 	{
 		j++;
 	}
 	for (; j < len; j++)
 	{
 		sum+=char_to_int(str[j]);
-	}
+	}//so we got a sum of numerals
 	if(sum%3==0)
 	{
-		return 1;
+		out= 1;
 	}
-	return 0;
+	out= 0;
+	return out;
 }
 
 
 string fiz_buzz(string input)
+/*
+ * fizz buzzing a token
+ */
 {
 	int is3, is5;
 	if(is_token_number( input ) == 1)
-	{// теперь там число, начинаем редактировать
+	{
 		is5=is_5_div( input );
 		is3=is_3_div( input );
 		if(is3==1)
@@ -153,10 +175,17 @@ string fiz_buzz(string input)
 			input="buzz";
 		}
 	}
+	else
+	{
+		input= "NOT_NUMBER";
+	}
 	return input;
 }
 
 string total_fizz_buzz(string line)
+/*
+ * fizz buzzing a whole line
+ */
 {
 	vector<string> token;// начинаем токенизировать
 	stringstream ss(line);
@@ -168,7 +197,11 @@ string total_fizz_buzz(string line)
 	int token_amount=token.size();// разбили на токены
 	for(int i=0; i<token_amount; i++)// редактируем токены
 	{
-		token[i]=fiz_buzz( token[i] );		
+		token[i]=fiz_buzz( token[i] );
+		if(token[i]=="NOT_NUMBER")
+		{
+			return "NOT_NUMBER";
+		}
 	}
 	//теперь выводим
 	string out="";
@@ -184,5 +217,7 @@ string total_fizz_buzz(string line)
 	}
 	return out;
 }
+
+
 
 
