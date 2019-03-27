@@ -7,7 +7,7 @@
 using namespace std;
 
 
-int is_char_number(char a);
+int is_char_numeral(char a);
 int is_token_number(string str);
 int char_to_int(char a);
 int is_5_div(string s);
